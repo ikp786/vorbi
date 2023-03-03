@@ -10,9 +10,9 @@ jobs:
         uses: actions/checkout@v2
       - run: 'chmod -R 777 storage/'
       - name: Install Dependencies
-      - name: Run Laravel migrations
-        run: php artisan migrate --seed
         run: composer install --prefer-dist --no-ansi --no-interaction --no-progress --no-scripts
+      - name: Run Laravel migrations
+        run: php artisan migrate
       - name: Deploy file
         uses: SamKirkland/FTP-Deploy-Action@4.3.2
         with:
